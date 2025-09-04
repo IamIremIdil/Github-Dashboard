@@ -1,0 +1,5 @@
+# JetBrains IDE (PyCharm, IntelliJ)
+.idea/
+*.iws
+*.iml
+*.ipr
