@@ -325,13 +325,14 @@ def create_dashboard():
                 list(processor.cache['event_breakdown'].items()),
                 columns=['Event Type', 'Count']
             )
-            fig = px.horizontal_bar(
+            fig = px.bar(
                 event_df,
                 x='Count',
                 y='Event Type',
                 title="GitHub Event Types Distribution",
                 color='Count',
-                color_continuous_scale='plasma'
+                color_continuous_scale='plasma',
+                orientation='h'
             )
             fig.update_layout(height=400)
             st.plotly_chart(fig, use_container_width=True)

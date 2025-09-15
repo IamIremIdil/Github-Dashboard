@@ -36,9 +36,6 @@ Once the dashboard is running, you can:
 *   [ ] Incorporate sentiment analysis on commit messages.
 *   [ ] Deploy the entire pipeline on AWS/Azure cloud.
 
-## 📜 License
-
-Distributed under the MIT License. See `LICENSE` file for more information.
 
 ---
 [**⭐️ Give this repo a star if you found it useful!**]
