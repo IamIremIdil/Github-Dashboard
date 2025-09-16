@@ -191,12 +191,24 @@ def create_dashboard():
         color: white;
         text-align: center;
     }
-    .stMetric {
-        background-color: #f0f2f6;
+    .stMetric { 
+        background-color: #16c3f7;
         padding: 1rem;
+         color: white;
         border-radius: 10px;
         border-left: 4px solid #1f77b4;
     }
+    
+/* Change delta (counter) color to #2260bd */
+[data-testid="stMetricDelta"] svg {
+    color: #2260bd !important;
+}
+
+/* Optional: Also style the delta text */
+[data-testid="stMetricDelta"] div {
+    color: #2260bd !important;
+    font-weight: bold;
+}
     </style>
     """, unsafe_allow_html=True)
 
@@ -209,6 +221,46 @@ def create_dashboard():
     # Sidebar controls
     with st.sidebar:
         st.header("⚙️ Dashboard Controls")
+        # GitHub link aligned to top left
+        st.markdown(
+            """
+            <style>
+            .top-github-link {
+                color: #2260bd;
+                font-weight: 600;
+                text-decoration: none;
+                position: relative;
+                transition: all 0.3s ease;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 12px;  /* Make it smaller - was 14px by default */
+            }
+            .top-github-link:hover {
+                color: #ff6b6b;
+            }
+            .top-github-link:hover::after {
+                content: "Visit my GitHub";
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #333;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-size: 12px;
+                white-space: nowrap;
+                margin-bottom: 5px;
+            }
+            </style>
+   
+            <div style='text-align: left; margin-top: -85px; margin-bottom: 30px; margin-left: 0px;'>
+                <a href="https://github.com/IamIremIdil" target="_blank" class="top-github-link">
+                    🐙 My GitHub
+                </a>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
         # Auto-refresh toggle
         auto_refresh = st.checkbox("🔄 Auto Refresh", value=True)
@@ -399,6 +451,52 @@ def create_dashboard():
             st.dataframe(user_table_df, use_container_width=True)
         else:
             st.info("No user activity data available.")
+    # Professional footer with tooltip
+    footer_html = """
+    <style>
+    .footer {
+        text-align: center;
+        color: #666666;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 14px;
+        margin-top: 3rem;
+        padding: 1.5rem;
+        border-top: 1px solid #e0e0e0;
+    }
+    .github-link {
+        color: #2260bd;
+        font-weight: 600;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    .github-link:hover {
+        color: #ff6b6b;
+    }
+    .github-link:hover::after {
+        content: "Visit my GitHub";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #333;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    </style>
+
+    <div class="footer">
+        Crafted with ❤️ by 
+        <a href="https://github.com/IamIremIdil" target="_blank" class="github-link">iro</a> 
+        © 2025
+    </div>
+    """
+
+    st.markdown("---")
+    st.markdown(footer_html, unsafe_allow_html=True)
 
     # Auto-refresh functionality
     if auto_refresh:
