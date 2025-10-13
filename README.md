@@ -1,10 +1,14 @@
 ## 🚀 Getting Started
 
+## Future changes to be made: (this project doesn't use real time data yet and uses samples)
+
 ### Prerequisites
 
 *   Python 3.10+
 *   Docker and Docker Compose
 *   A GitHub Personal Access Token (optional, for higher rate limits)
+
+current prerequisites: python 3.10+
 
 ### Installation
 

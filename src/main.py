@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 
 class GitHubStreamProcessor:
-    """Processes GitHub Archive data stream and computes real-time analytics"""
+    ## Processes GitHub Archive data stream and computes real-time analytics
 
     def __init__(self):
         # In-memory storage for demo (in production, use Redis/PostgreSQL)
