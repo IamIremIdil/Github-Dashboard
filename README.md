@@ -1,4 +1,3 @@
-## 🚀 Getting Started
 
 ## Future changes to be made: (this project doesn't use real time data yet and uses samples)
 
